@@ -1,3 +1,5 @@
+import { FaRegStar, FaStar } from "react-icons/fa6";
+
 interface Props {
     rating: number
 }
@@ -17,7 +19,8 @@ const StarRating = (props: Props) => {
 
     return (
     <div>
-        <p>{numStars}</p>
+        <FaStar />
+        <FaRegStar />
     </div>
   )
 }
