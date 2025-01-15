@@ -3,11 +3,13 @@ import "./index.scss";
 import axios from "axios";
 import MovieCard from "../MovieCard";
 import { Movie } from "@/Types/movie";
+import ReactLoading from "react-loading";
 
 const MovieList = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    const getMovies = () => {
+    const getMovies = async () => {
         axios({
             method: "GET",
             url: "https://api.themoviedb.org/3/discover/movie",
@@ -18,12 +20,18 @@ const MovieList = () => {
         }).then(response => {
             setMovies(response.data.results);
         });
+
+        setIsLoading(false);
     }
 
     useEffect(() => {
         getMovies()
     }, []);
     
+    if(isLoading) {
+        
+    }
+
     return (
         <ul className="movie-list">
             {movies.map((movie) => (
