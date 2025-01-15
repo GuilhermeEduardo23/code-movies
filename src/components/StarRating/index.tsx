@@ -1,3 +1,4 @@
+import "./index.scss";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 
 interface Props {
@@ -18,9 +19,9 @@ const StarRating = (props: Props) => {
     }
 
     return (
-    <div>
-        <FaStar />
-        <FaRegStar />
+    <div className="movie-rate">
+        {fullStars.map(index => <FaStar key={index} />)}
+        {emptyStars.map(index => <FaRegStar key={index} />)}
     </div>
   )
 }

@@ -20,6 +20,9 @@ const MovieCard = ({movie}: {movie: Movie}) => {
                 <p className="description">
                     {movie.overview}
                 </p>
+                <button className="btn-default">
+                    Ver mais
+                </button>
             </div>
         </div>
         
