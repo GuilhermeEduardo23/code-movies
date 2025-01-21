@@ -7,13 +7,14 @@ import { Movie } from "@/Types/movie";
 const MovieList = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const API_KEY = process.env.API_TMDB;
 
     const getMovies = async () => {
         axios({
             method: "GET",
             url: "https://api.themoviedb.org/3/discover/movie",
             params: {
-                api_key: "b346ca3d055a0d1ed4948076f24d1809",
+                api_key: API_KEY,
                 language: "pt-BR",
             }
         }).then(response => {
